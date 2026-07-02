@@ -67,7 +67,9 @@ export default App */
 import React from 'react'
 import { Routes, Route, Navigate } from 'react-router'
 
-import { WelcomeScreen } from './screens/WelcomeScreen/WelcomeScreen'
+//import { WelcomeScreen } from './screens/WelcomeScreen/WelcomeScreen'
+
+import { WelcomeScreen } from './screens/Welcomescreen/Welcomescreen'
 import { LoginScreen } from './screens/LoginScreen/LoginScreen'
 import { RegisterScreen } from './screens/RegisterScreen/RegisterScreen'
 import { HomeScreen } from './screens/HomeScreen/HomeScreen'

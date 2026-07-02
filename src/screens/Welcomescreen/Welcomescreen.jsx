@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router";
-import "./WelcomeScreen.css";
+//import "./WelcomeScreen.css";
+import "./Welcomescreen.css";
 
 export const WelcomeScreen = () => {
 
