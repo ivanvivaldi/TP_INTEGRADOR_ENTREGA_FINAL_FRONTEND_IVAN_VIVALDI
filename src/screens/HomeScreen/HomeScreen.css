@@ -1,5 +1,13 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
 .home-container {
     min-height: 100vh;
+    width: 100%;
+    overflow-x: hidden;
     background:
         radial-gradient(circle at top left, rgba(37, 99, 235, 0.10), transparent 32%),
         linear-gradient(180deg, #f8fafc 0%, #eef2f7 100%);
@@ -7,10 +15,16 @@
     color: #111827;
 }
 
-.home-header {
+.home-header,
+.home-search,
+.home-main {
+    width: 100%;
     max-width: 1120px;
+}
+
+.home-header {
     margin: 0 auto 28px;
-    background: rgba(255, 255, 255, 0.82); 
+    background: rgba(255, 255, 255, 0.82);
     border: 1px solid rgba(226, 232, 240, 0.9);
     border-radius: 24px;
     padding: 22px;
@@ -25,9 +39,11 @@
     display: flex;
     align-items: center;
     gap: 16px;
+    min-width: 0;
 }
 
 .avatar {
+    flex-shrink: 0;
     width: 54px;
     height: 54px;
     border-radius: 18px;
@@ -45,11 +61,13 @@
     font-size: 28px;
     margin-bottom: 4px;
     letter-spacing: -0.03em;
+    overflow-wrap: break-word;
 }
 
 .user-profile p {
     color: #64748b;
     font-size: 15px;
+    overflow-wrap: break-word;
 }
 
 .btn-primary {
@@ -76,12 +94,12 @@
 }
 
 .home-search {
-    max-width: 1120px;
     margin: 0 auto 24px;
 }
 
 .home-search__input {
     width: 100%;
+    max-width: 100%;
     padding: 16px 18px;
     border: 1px solid #dbe3ef;
     border-radius: 18px;
@@ -93,13 +111,7 @@
     box-shadow: 0 12px 28px rgba(15, 23, 42, 0.05);
 }
 
-.home-search__input:focus {
-    border-color: #2563eb;
-    box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.12);
-}
-
 .home-main {
-    max-width: 1120px;
     margin: 0 auto;
 }
 
@@ -126,17 +138,20 @@
     display: flex;
     flex-direction: column;
     gap: 16px;
+    min-width: 0;
 }
 
 .workspace-card {
     position: relative;
     width: 100%;
+    max-width: 100%;
+    min-width: 0;
     background: rgba(255, 255, 255, 0.92);
     border: 1px solid #e2e8f0;
     border-radius: 22px;
     padding: 22px;
     display: grid;
-    grid-template-columns: 78px 1fr auto;
+    grid-template-columns: 78px minmax(0, 1fr) auto;
     align-items: center;
     gap: 22px;
     cursor: pointer;
@@ -166,6 +181,7 @@
 }
 
 .workspace-card-icon {
+    flex-shrink: 0;
     width: 78px;
     height: 78px;
     border-radius: 20px;
@@ -180,6 +196,8 @@
 }
 
 .workspace-card-info {
+    min-width: 0;
+    max-width: 100%;
     display: flex;
     flex-direction: column;
     gap: 8px;
@@ -189,12 +207,16 @@
     font-size: 21px;
     color: #111827;
     letter-spacing: -0.02em;
+    overflow-wrap: break-word;
+    word-break: break-word;
 }
 
 .workspace-card-info p {
     color: #64748b;
     line-height: 1.45;
     max-width: 720px;
+    overflow-wrap: break-word;
+    word-break: break-word;
 }
 
 .workspace-card-meta {
@@ -203,6 +225,7 @@
     flex-wrap: wrap;
     gap: 10px;
     margin-top: 4px;
+    min-width: 0;
 }
 
 .workspace-card__role-badge {
@@ -229,6 +252,8 @@
 }
 
 .workspace-card-actions {
+    min-width: 0;
+    max-width: 100%;
     display: flex;
     align-items: center;
     gap: 14px;
@@ -329,21 +354,29 @@
 
 @media (max-width: 768px) {
     .home-container {
-        padding: 22px 18px;
+        padding: 22px 14px;
+        overflow-x: hidden;
     }
 
     .home-header,
     .section-title-container {
         flex-direction: column;
-        align-items: flex-start;
+        align-items: stretch;
     }
 
     .home-header {
         border-radius: 20px;
     }
 
+    .user-profile {
+        width: 100%;
+    }
+
     .workspace-card {
         grid-template-columns: 1fr;
+        width: 100%;
+        padding: 18px;
+        gap: 18px;
     }
 
     .workspace-card-icon {
@@ -353,7 +386,7 @@
 
     .workspace-card-actions {
         width: 100%;
-        justify-content: space-between;
+        justify-content: stretch;
     }
 
     .workspace-card__delete-button {
@@ -362,5 +395,28 @@
 
     .workspace-card-arrow {
         display: none;
+    }
+}
+
+@media (max-width: 420px) {
+    .home-container {
+        padding: 18px 10px;
+    }
+
+    .home-header {
+        padding: 18px;
+    }
+
+    .user-profile h2 {
+        font-size: 24px;
+    }
+
+    .section-title-container h3 {
+        font-size: 23px;
+    }
+
+    .workspace-card {
+        padding: 16px;
+        border-radius: 18px;
     }
 }
