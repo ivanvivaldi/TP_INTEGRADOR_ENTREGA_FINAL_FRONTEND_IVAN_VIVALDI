@@ -1,0 +1,102 @@
+.welcome-container{
+
+    width:100vw;
+    height:100vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    background:#f5f7fb;
+}
+
+.welcome-card{
+
+    width:420px;
+
+    background:white;
+
+    padding:50px;
+
+    border-radius:16px;
+
+    box-shadow:0 15px 40px rgba(0,0,0,.08);
+
+    display:flex;
+    flex-direction:column;
+
+    gap:20px;
+
+    text-align:center;
+}
+
+.welcome-card h1{
+
+    color:#1d4ed8;
+
+    font-size:42px;
+}
+
+.welcome-card h2{
+
+    font-size:26px;
+
+    color:#222;
+}
+
+.welcome-card p{
+
+    color:#666;
+
+    line-height:1.5;
+}
+
+.primary-btn{
+
+    margin-top:20px;
+
+    padding:14px;
+
+    border:none;
+
+    border-radius:8px;
+
+    background:#1d4ed8;
+
+    color:white;
+
+    cursor:pointer;
+
+    font-size:16px;
+
+    transition:.2s;
+}
+
+.primary-btn:hover{
+
+    background:#1a44bf;
+}
+
+.secondary-btn{
+
+    padding:14px;
+
+    border-radius:8px;
+
+    border:2px solid #1d4ed8;
+
+    background:white;
+
+    color:#1d4ed8;
+
+    cursor:pointer;
+
+    font-size:16px;
+
+    transition:.2s;
+}
+
+.secondary-btn:hover{
+
+    background:#eef4ff;
+}
